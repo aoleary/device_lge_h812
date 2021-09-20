@@ -13,8 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)                                                        
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)                                                
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Boot animation
@@ -24,13 +24,10 @@ TARGET_SCREEN_WIDTH := 1440
 # Inherit from hardware-specific part of the product configuration
 $(call inherit-product, $(LOCAL_PATH)/device.mk)
 
-# Inherit from the common Open Source product configuration
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+# Inherit some common ROM stuff.
+$(call inherit-product, vendor/aosip/config/common_full_phone.mk)
 
-# Inherit some common LineageOS stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
-
-PRODUCT_NAME := lineage_h812_usu
+PRODUCT_NAME := aosip_h812_usu
 PRODUCT_DEVICE := h812_usu
 PRODUCT_BRAND := lge
 PRODUCT_MODEL := LG-H812
